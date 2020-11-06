@@ -1,0 +1,206 @@
+body {
+    background-image: url('piano.jpg');
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    /* background-position: center; */
+    color: #ffffff;
+    /* opacity: 0.9; */
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+table {
+    table-layout: auto;
+    background-color: rgba(5, 5, 5, 0.8);
+    color: goldenrod;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(35, 35, 35, 0.8);
+}
+
+table, td {
+    padding-bottom: 3px;
+    padding-top: 3px;
+    letter-spacing: 3px;
+    font-size: 14px;
+    /* width: 75%; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td {
+    text-align: center;
+}
+
+table {
+    width: 90%;
+    border-spacing: 0;
+}
+
+table, th, td {
+    border: 2px solid rgba(255, 217, 0, 0.507);
+    border-collapse: collapse;
+}
+
+::-webkit-input-placeholder {
+    color: #333333;
+}
+
+h1 {
+    color: goldenrod;
+    text-align: center;
+    padding-top: 20px;
+}
+hr {
+    width: 80%;
+}
+
+hr.style-eight {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double #ffffff;
+    color: goldenrod;
+    text-align: center;
+}
+hr.style-eight:after {
+    content: "§"; 
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.8em;
+    padding: 0 0.25em;
+    /* background: rgba(5, 5, 5, 0.0); */
+}
+
+#wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+    background-color: rgba(5, 5, 5, 0.8);
+    opacity: 0.9;
+	min-width: 960px;
+	max-width: 2048px;
+    box-shadow: 0px 2px 10px #333333;
+    /* height: auto; */
+    z-index: -1;
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+#content {
+    opacity: 1.0;
+    color: #ffffff;
+    z-index: 1;
+    letter-spacing: 5px;
+}
+
+.flex-contain {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.item {
+    max-width: 30%;
+    min-width: 30%;
+    height: auto;
+    padding: 5px;
+    text-align: left;
+    margin: auto auto;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    word-spacing: 10px;
+}
+
+.error {
+    font-size: 15px;
+    word-spacing: 0px;
+    font-family: 'Courier New', Courier, monospace;
+    color: gold;
+    font-weight: bold;
+    display: none;
+}
+
+label{
+	/* float: left; */
+	display: block;
+	/* text-align: left; */
+	padding-right: 10px;
+}
+
+input, select{
+	display: block;
+	margin-bottom: 20px;
+}
+
+input[type=text], select {
+    width: 90%;
+    padding: 12px 10px;
+    font-size: 16px;
+    text-align: center;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #888888;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+input[type="submit"]{
+	margin-left: 130px;
+}
+
+input[type="radio"] {
+    display: inline;
+}
+
+input[type=button], input[type=reset] {
+    width: 40%;
+    background-color: goldenrod;
+    color: #222222;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    /* margin: 8px 0; */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    /* margin-left: 15%; */
+    display: inline;
+}
+
+input[type=button]:hover, input[type=reset]:hover {
+    background-color: rgb(219, 172, 54); 
+}
+
+@media only screen and (max-width:64em){
+	#wrapper{
+		min-width: 0px;
+		width: auto;
+        box-shadow: none;
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (max-width:37.5em){   
+    label {float:none;text-align: left;}
+    /* input[type="submit"]{margin-left: 0;} */
+    
+    hr {
+        width: 90%;
+    }
+}

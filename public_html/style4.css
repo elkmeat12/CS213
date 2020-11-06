@@ -1,0 +1,103 @@
+header {
+    background-image: url(football.jpg);
+    background-size: cover;
+    text-indent: 1em;
+    height: 170px;
+    width: auto;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 150%;
+    text-align: center;
+    display: block;
+    padding-top: 2px;
+}
+
+
+body {
+    background-image: url(grass.jpg);
+    background-size: cover;
+}
+
+table {
+    padding-bottom: 5px;
+    border: 2px solid black;
+    border-collapse: collapse;
+    }
+
+th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+}
+
+
+.topNav {
+    background-color: #7e6737;
+    overflow: hidden;
+}
+
+.topNav a {
+    float: left;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin-left: 0;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.topNav a:hover {
+    background-color: #e2ce95;  
+    color: black;
+}
+
+#wrapper {
+    margin: 10px auto;
+    margin-bottom: 50px;
+    width: 80%;
+    background-color: #e8cb7d;
+    min-width: 960px;
+    max-width: 2048px;
+    box-shadow: 0px 2px 10px #333333;
+}
+
+#content {
+    margin:auto;
+    width: 80%;
+    text-align: left;
+    font-size: 18px;
+}
+
+.footer {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    padding-bottom: 25px;
+}
+
+.error {
+    font-size: 12px;
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+    display: none;
+}
+
+.cntr {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lft {
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    float: left;
+}
+
+.rht {
+    margin-left: auto;
+    margin-right: 0;
+    width: 50%;
+}

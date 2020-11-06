@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+    <head>
+        <title>Mortgage Calculator</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="mortgage.css">  
+        <script type="text/javascript" src="mortgage.js"></script>
+
+        <?php include("mortgage.php"); ?>
+    </head>
+
+    <body>
+
+
+        <div id="wrapper">
+            <header>
+                <h1>Mortgage Calculator</h1>
+            </header>
+            <div class="topNav">
+                <nav>
+                    <a href="mortgage.html">Mortgage Calculator</a>
+                    <a href="assign09.html">Directory</a>
+                </nav>
+            </div>        
+        <main>
+            <div id="content">
+                <br />
+                <h3>Instruction:</h3>
+                <p>
+                    This form helps calculate your monthly mortgage for you. All we need you to do
+                    is fill out the requested input areas and your monthly payment will be displayed
+                    below. For your APR, the percentage must be between 0 and 25.00 %. The loan term
+                    must also be between 0 and 40 years.
+                </p>
+                <form action="mortgage.php" method="get" onreset="restart()" onsubmit="return validate()">
+                        <fieldset>
+                            <p>Annual Percentage Rate: 
+                            <input type="text" name="percentRate" id="rate" placeholder="00.00" size="5" onchange="change()" required autofocus> % </p>    <!--Values must be between 0 and 25.00 percent-->
+                            <p id="rateError" class="error">Invalid Value for Annual Percentage Rate</p>
+                            <p>Loan Term:
+                            <input type="text" name="loanTerm" id="term" placeholder="0" size="3" onchange="change()" required> years </p>     <!--Values must be between 0 and 40 years-->
+                            <p id="termError" class="error">Invalid Value for Loan Term</p>
+                            <p>Loan Amount: $ 
+                            <input type="text" name="loanAmount" id="amount" placeholder="0" onchange="change()" required> </p>
+                            <p id="amountError" class="error">Invalid Value for Loan Amount</p>
+                        
+                            <br />
+                            <button type="submit" value="Calculate">Calculate Payment</button>
+                            <input type="reset" value="Clear Form">
+
+                        </fieldset>
+                    </form>
+                </div>
+            </main>
+
+            <br />
+            <div class="footer">
+                    <footer>
+                       <span style="color: #000000"> &copy; 2018 Tyler Elkington</span>
+                    </footer>
+                </div>   
+
+        </div>
+    </body>
+</html>
+

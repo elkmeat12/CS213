@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+    <head>
+        <title>Mileage Calculator</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!-- This is the Javascript -->
+        <script type="text/Javascript">
+        function validate() {
+            var startCity = document.getElementById("startCity").value;
+            var startState = document.getElementById("startState").value;
+            var endCity = document.getElementById("endCity").value;
+            var endState = document.getElementById("endState").value;
+            var isValid = true;
+
+            if (!endState.match(/\S/))
+            {
+                document.getElementById("endState").focus();
+                document.getElementById("endState").style.borderColor = "red";
+                isValid = false;
+            }
+
+            if (!endCity.match(/\S/))
+            {
+                document.getElementById("endCity").focus();
+                document.getElementById("endCity").style.borderColor = "red";
+                isValid = false;
+            }
+
+            if (!startState.match(/\S/))
+            {
+                document.getElementById("startState").focus();
+                document.getElementById("startState").style.borderColor = "red";
+                isValid = false;
+            }
+
+            if (!startCity.match(/\S/))
+            {
+                document.getElementById("startCity").focus();
+                document.getElementById("startCity").style.borderColor = "red";
+                isValid = false;
+            }
+            if (isValid == false)
+                return isValid;
+
+            getRequest('/cgi-bin/cs213/mileageAjaxJSON');
+        }
+
+        var req;
+        function getRequest(url) {
+            req = false;
+            req = new XMLHttpRequest();
+
+            url += '?' + 'startCity' + '=' + document.getElementById("startCity").value + '&'
+                       + 'startState' + '=' + document.getElementById("startState").value + '&'
+                       + 'endCity' + '=' + document.getElementById("endCity").value + '&'
+                       + 'endState' + '=' + document.getElementById("endState").value;
+
+            req.onreadystatechange = processJSON;
+            req.open("GET", url, true);
+            req.send();
+        }
+
+        function processJSON() {
+            if (req.readyState == 4)
+            {
+                if (req.status == 200)
+                {
+                    var myObj = JSON.parse(req.responseText);
+                    var list = "<h2>" + "The Distance from " + myObj.trip.startcity + ", "
+                               + myObj.trip.startstate + " to " + myObj.trip.endcity + ", "
+                               + myObj.trip.endstate + " is <br>" + "<font color='red'>" + 
+                               + myObj.trip.miles + "</font>" + " miles." + "</h2>\n" 
+                               + "<h3>" + "Possible methods of transportation are: " + "<br>"
+                               + "<font color='blue'>";
+                    for (var i in myObj.trip.tmode)
+                    {
+                        list = list + myObj.trip.tmode[i] + " ";
+                    }
+
+                    list = list + "</font>" + "</h3>";
+
+                    if (myObj.trip.miles == "Unknown")
+                    {
+                        list = "<h2>One of the cities is either not supported or is invalid</h2>";
+                    }
+                    document.getElementById("result").innerHTML = list;
+                }
+                else
+                {
+                    alert("Failed to retrieve the text file:\n" + req.statusText);
+                } 
+            }
+        }
+        </script>
+
+        <!-- This is the internal stylesheet -->
+        <style>
+        h1 {
+            text-align: center;
+        }
+
+
+        body {
+            background-image: url('new_back.jpg');
+            background-size: cover;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+
+        input[type=text], select {
+            width: 90%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=button] {
+            width: 60%;
+            background-color: #1c467c;
+            color: #ffffff;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 15%;
+        }
+
+        input[type=button]:hover {
+            background-color: #265ca3; 
+        }
+        
+        .center {
+            margin-left: 10%;
+            margin-right: auto;
+        }
+
+        #wrapper {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            border-radius: 10px;
+            width: 60%;
+            background: #f2f2f2;
+            min-width: 960px;
+            max-width: 2048px;
+            box-shadow: 0px 2px 10px #333333;
+        }
+
+        #content {
+            border-radius: 5px;
+            background-color: #78acf0;
+            padding: 20px;
+        }
+
+        #output {
+            width: 100%;
+            height: 400px;
+        }
+        </style>
+    
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <header>
+                <h1>Mileage Calculator</h1>
+            </header>
+
+            <div id="content">
+                <main>
+                    <div class="center">
+                    <label>Starting City</label> <br />
+                    <input type="text" id="startCity" name="startCity" placeholder="City: ie.. Boise">
+                    <br />    
+                    <label>Starting State</label> <br />
+                    <input type="text" id="startState" name="startState" placeholder="State: ie.. ID" maxlength="2">
+                    <br /> 
+                    <label>Ending City</label> <br />
+                    <input type="text" id="endCity" name="endCity" placeholder="City: ie.. Denver">
+                    <br /> 
+                    <label>Ending State</label> <br />
+                    <input type="text" id="endState" name="endState" placeholder="State: ie.. CO" maxlength="2">
+
+                    <input type="button" value="Submit" onclick="validate()" style="font-size: 20px">
+                    <br />
+                    
+                    </div>
+                    <p id="result" style="text-align: center"></p>
+                    
+                </main>
+            </div>
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+    <head>
+        <title>Ajax Request</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assign8.css">  
+        <script type="text/javascript" src="assign8.js"></script>
+    
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Make a File Request</h1>
+        </header>
+           
+        <main>
+            <h2>
+                Country List
+            </h2>
+            <hr style="width: 50%">
+            <p>
+                <input type="button" value="USA" onclick="sendUSA()" class="button">
+                <input type="button" value="Canada" onclick="sendCanada()" class="button">
+                <input type="button" value="Mexico" onclick="sendMexico()" class="button">
+                <input type="button" value="Russia" onclick="sendRussia()" class="button">
+            </p>
+            
+
+            <div class="container">
+                <br />
+                <div class="fileContain" style="font-size: 18px">
+                    <br />
+                    <span id="city"></span>
+                    <pre id="area">
+                        <br />
+                    </pre>
+                </div>
+            </div>
+            
+            <br /><br />
+            
+            <h2>
+                Choose a File
+                <hr style="width: 50%">
+            </h2>
+            <p style="font-size: 20px; font-weight: bold; color: #ffffff; text-shadow: 2px 2px #333333">
+            Enter a file to load:
+            <input type="text" id="file" value="json.txt">
+            </p>
+            <input type="button" value="Upload File" onclick="processJSON()" class="button">
+            
+            <br /><br />
+
+            <div class="container">
+                <br />
+                <div class="fileContain">
+                    <p id="list2"></p>
+                </div>
+            </div>
+
+        </main>
+        <br />
+        <footer>
+            <i>&copy; <script type="text/javascript"> document.write(new Date().getFullYear()); </script> Tyler Elkington</i>
+        </footer>
+
+    </body>
+</html>
+

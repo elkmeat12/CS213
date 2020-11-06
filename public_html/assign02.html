@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--This is an html5 simple document-->
+
+<html lang = "en">
+    <head>
+        <title>Tyler Elkington's Enhanced Home Page</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">  
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <div id="head">
+                <header>
+                    <h1>Home Page</h1>                    
+                </header>
+            </div>
+            <div id="topNav">
+                <nav>
+                    <a href="index.html">CS 213 Assignments</a>
+                    <a href="http://emp.byui.edu/ercanbracks/cs213.htm">Class Website</a>
+                    <a href="#form">Jump to Form</a>                               
+                </nav>
+            </div>
+        <main>
+            <div id="trap">  
+                        <h2 style="font-family: 'Times New Roman', Times, serif">Introduction of Me</h2>
+                        <hr>
+                        <p style="font-family: Arial, Helvetica, sans-serif">
+                            <strong>Name:</strong> Tyler Elkington <br />
+                            <strong>Major:</strong> Computer Science <br />
+                            <strong>From:</strong> Rigby, Idaho
+                        </p>
+                        <p><strong>Favorite Quote:</strong></p>
+                        <blockquote style="font-family: Georgia, 'Times New Roman', Times, serif">
+                            "Opportunities are like sunrises. If you wait too long, you miss them."<br />
+                            <i>- William Arthur Ward</i>
+                        </blockquote>
+        
+                <hr style="width: 70%">
+                <div id="table">
+                    <table style="width: 70%; text-align: left; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                        <tr>
+                            <th>Course Number</th>
+                            <th>Course Description</th>
+                            <th>Section Number</th>
+                            <th>Time</th>
+                            <th>Location</th>
+                        </tr>
+                        <tr>
+                            <td>Chem 105L</td>
+                            <td>General Chemistry Lab 1</td>
+                            <td>Section 04</td>
+                            <td>M 2:00 - 4:45 PM</td>
+                            <td>ROM 282</td>
+                        </tr>
+                        <tr>
+                            <td>CS 213</td>
+                            <td>Web Engineering 1</td>
+                            <td>Section 04</td>
+                            <td>TR 9:45 - 11:15 AM</td>
+                            <td>STC 398</td>
+                        </tr>
+                        <tr>
+                            <td>CS 235</td>
+                            <td>Data Structures</td>
+                            <td>Section 04</td>
+                            <td>MWF 12:45 - 1:45 PM</td>
+                            <td>STC 398</td>
+                        </tr>
+                        <tr>
+                            <td>CS 237</td>
+                            <td>Discrete Mathematics 1</td>
+                            <td>Section 02</td>
+                            <td>TR 12:45 - 1:45</td>
+                            <td>STC 398</td>
+                        </tr>
+                        <tr>
+                            <td>FDWLD 101</td>
+                            <td>World Foundations 1</td>
+                            <td>Section 09</td>
+                            <td>0:00 - 0:00 AM</td>
+                            <td>Online</td>
+                        </tr>
+                        <tr>
+                            <td>Math 341</td>
+                            <td>Linear Algebra</td>
+                            <td>Section 02</td>
+                            <td>MWF 11:30 AM - 12:30 PM</td>
+                            <td>RKS 247</td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <h1>More About Me</h1>
+                <hr>
+                <p>
+                I am originally from Idaho Falls, Idaho and I graduated Bonneville High School in 2014. 
+                Soon after I had graduated, I left for my mission to the Philippines. My mission was called
+                <a href="http://www.iloilo.gov.ph/about-iloilo" target="_blank" title="More about Iloilo" style="text-decoration: none; color: blue"> Iloilo</a> (<i>elo-elo</i>) and I learned up to 6 different dialects. The main dialect that I learned 
+                is called <i>Hiligaynon</i> but also know as <i>Ilonggo</i>. When I returned from my mission, I attended
+                a year of school at <strong>Dixie State University</strong> but had to return to Idaho due to the 
+                expensiveness of tuition. I at least met my wife there in St. George and we were sealed in the temple
+                December 2017. This has been my second semester at <strong>Brigham Young University - Idaho</strong>
+                and I have enjoyed my time here.
+                </p>   
+                <br />
+                <div class="imglayout">
+                    <img src="wife.jpg" alt="Tyler Elkington and Wife" style="height: 320px; width: 250px">
+                    <div class="imgContain">
+                        <img src="philippines.jpg" alt="Map of Philippines" style="height: 320px; width: 250px">
+                        <div class="overlay">
+                            <a href="https://www.google.com/search?q=panay+philippines&rlz=1C1CHBF_enUS709US709&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjvu-KrnPXaAhWCj1QKHUA0B3wQ_AUIDCgD&biw=681&bih=642" target="_blank" title="See more Images">
+                            <div class="text">View More</div>
+                            </a>
+                        </div>
+                    </div>
+                    <img src="mission.JPG" alt="Tyler in his Mission" style="height: 250px; width: 320px; margin-top: auto; margin-bottom: auto">
+                </div>   
+                <br />
+                <h1 id="form">Getting to Know You</h1>
+                <hr>
+                <p><i>In the form below, please include some information that would help me get to know you better.</i></p>
+            </div>
+            <form action="">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    First Name: <input type="text" name="firstname" required>
+                    <br />
+                    <br />
+                    Last Name: <input type="text" name="lastname" required>
+                    <br />
+                    <br />
+                    <input type="radio" name="gender" value="male">Male<br />
+                    <input type="radio" name="gender" value="female">Female<br />
+                    <input type="radio" name="gender" value="other">Other<br />
+                    <br />
+                    <input type="checkbox" name="education" value="student">I am a student<br />
+                    <input type="checkbox" name="education" value="school">I am attending or have attended BYU-Idaho<br />
+                    <input type="checkbox" name="major" value="major">I am a Computer Science Major<br />
+                    <br />
+                    <select name="grade">
+                        <option value="freshman">Freshman</option>
+                        <option value="sophomore">Sophomore</option>
+                        <option value="junior">Junior</option>
+                        <option value="senior">Senior</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <br />
+                    <br />
+                    What do you like about BYU-Idaho?<br /><br />
+                    <textarea name="message" style="width: 400px; height: 100px"></textarea>
+
+                    <br />
+                    <br />
+                    <input type="submit" value="Submit">
+                    <input type="reset">
+                </fieldset>
+            </form>
+
+            <button onclick="topFunction()" id="upbutton" title="Go to top">Return to Top</button>   
+            <script>
+                window.onscroll = function() {scrollFunction()};
+
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        document.getElementById("upbutton").style.display = "block";
+                    } else {
+                        document.getElementById("upbutton").style.display = "none";
+                    }
+                }
+
+                // When the user clicks on the button, scroll to the top of the document
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
+        <br />
+        <hr style="width: 90%">
+        <br />
+        
+        </main>
+        <div class="footer">
+            <footer>
+                &copy; 2018 BYU-Idaho
+                <br />
+                <a href="mailto:elk14002@byui.edu">Send me an Email</a>
+            </footer>
+        </div>
+        </div>
+    </body>
+</html>
+

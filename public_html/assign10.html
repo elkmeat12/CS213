@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+    <head>
+        <title>Sports Now</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style4.css">  
+        <script type="text/javascript" src="assign10.js"></script>
+        
+
+        <style>
+            form {
+                margin-top: 15px;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            table {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+
+    <?php include("assign10.php"); ?>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <header>
+                <h1>Sports Now</h1>
+            </header>
+            <div class="topNav">
+                <nav>
+                    <a href="assign10.html" style="margin-left: 13%">Home</a>
+                </nav>
+            </div>        
+        <main>
+            <div id="content">
+                
+                <form action="assign10.php" method="GET" name="myForm" onreset="restart()" onsubmit="return validateForm()">
+                        <fieldset>
+                            <div class="lft">
+                                <p>First Name: 
+                                <input type="text" name="firstName" id="fname" onblur="upperCase()" autofocus></p>  
+                                <p id="fnameError" class="error">First Name is Required</p>
+                                <p>Last Name:
+                                <input type="text" name="lastName" id="lname" onblur="upperCase()"></p>
+                                <p id="lnameError" class="error">Last Name is Required</p>
+                                Address: <br />
+                                <textarea name="address" id="address" rows="4" cols="30"></textarea>
+                                <p id="addressError" class="error">An Address is Required</p>
+                                <p>
+                                    Phone Number: 
+                                    <input type="tel" size="12" name="phone" id="phoneNum" onchange="testPhone()" maxlength="12" placeholder="xxx-xxx-xxxx">
+                                </p>
+                    
+                                <p id="phoneError" class="error">Please Enter a Valid Phone Number <br /> (ex. 123-456-7890)</p>
+                                <br />
+                                <p>
+                                    Credit Card: <br />
+                                    <input type="radio" name="cardType" value="Visa"> Visa <br />
+                                    <input type="radio" name="cardType" value="Mastercard"> MasterCard <br />
+                                    <input type="radio" name="cardType" value="American"> American Express
+                                </p>
+                                <p id="typeError" class="error">Please Select the Card You Will Be Using</p>
+                                <p>
+                                    Credit Card Number:    
+                                    <input type="text" name="cardNum" size="18" maxlength="16" onchange="testCard()" placeholder="xxxxxxxxxxxxxxxx">
+                                </p>
+                                <p id="cardNumError" class="error">Please Enter a Valid Card Number <br /> (ex. 1122334455667788)</p>
+                                <p>
+                                    Card Expiration Date: <br /> <br />
+                                    Month: <input type="text" name="month" size="1" maxlength="2" placeholder="xx">
+                                    Year: <input type="text" name="year" size="3" maxlength="4" placeholder="xxxx">
+                                </p>
+                                <p id="expError" class="error">Please Enter a Valid Expiration Date (ex. Month: 12 Year: 2018)</p>
+                                <br />
+
+
+                            </div>
+                            <div class="rht">
+                            <table id="calculate">
+                                <tr>
+                                    <th>Equipment</th>
+                                    <th>Cost</th>
+                                </tr>
+                                <tr>
+                                    <th><input type="checkbox" id="basketball" name="prod1" value="20.00" onchange="getPay()"> Basketball</th> <br />
+                                    <th>$20.00</th>    
+                                </tr>
+                                <tr>
+                                    <th><input type="checkbox" id="football" name="prod2" value="12.00" onchange="getPay()"> Football</th><br />
+                                    <th>$12.00</th>
+                                </tr>
+                                <tr>
+                                    <th><input type="checkbox" id="soccer" name="prod3" value="20.00" onchange="getPay()"> Soccer Ball</th><br />
+                                    <th>$20.00</th>
+                                </tr>
+                                <tr>
+                                    <th><input type="checkbox" id="frisbee" name="prod4" value="8.00" onchange="getPay()"> Frisbee</th><br />
+                                    <th>$8.00</th>
+                                </tr>
+                            </table>
+                            <p style="margin-left: 20%">
+                                Total: 
+                                <input type="text" id="payment" name="total" value="0" disabled/>
+                            </p>
+                            <p id="purchaseError" class="error" style="margin-left: 20%">Select an Item to Purchase</p>
+                            </div>
+                            
+                            <br />
+                            <div class="cntr">
+                                <input type="submit">
+                                <input type="reset" value="Reset">
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </main>
+
+            <br />
+            <div class="footer">
+                    <footer>
+                       <span style="color: #000000"> &copy; 2018 Tyler Elkington</span>
+                    </footer>
+                </div>   
+
+        </div>
+    </body>
+</html>
+

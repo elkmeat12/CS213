@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+    <head>
+        <title>Form Validator</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style4.css">  
+
+        <script>
+        
+        window.onload = function()
+        {
+            document.getElementById("fname").focus();
+            document.getElementById("calculate").onclick = getPay();
+        };
+    
+
+        function getPay()
+        {
+            var checkBask = document.getElementById("basketball").checked;
+            var checkFoot = document.getElementById("football").checked;
+            var checkSoccer = document.getElementById("soccer").checked;
+            var checkFrisbee = document.getElementById("frisbee").checked;
+
+            var bask = document.getElementById("basketball").value * 1;
+            var foot = document.getElementById("football").value * 1;
+            var soccer = document.getElementById("soccer").value * 1;
+            var frisbee = document.getElementById("frisbee").value * 1;
+
+            var payment = 0;
+
+            if(checkBask)
+                payment += bask;
+            if(checkFoot)
+                payment += foot;
+            if(checkSoccer)
+                payment += soccer;
+            if(checkFrisbee)
+                payment += frisbee;
+            
+            document.getElementById("payment").value = "$" + payment;
+
+        }
+
+        function validType()
+        {
+            var card = document.getElementsByName("cardType");
+
+            for (var i = 0; i < card.length; i++)
+            {
+                if (card[i].checked)
+                {
+                    return true;
+                    break;
+                }
+            }
+        }
+
+
+        function validateForm()
+        {            
+            var isValid = true;
+            var firstName = document.forms["myForm"]["fname"].value;
+            var lastName = document.forms["myForm"]["lname"].value;
+            var address = document.forms["myForm"]["address"].value;
+            var exp = document.forms["myForm"]["expire"].value;
+           
+            resetErrors();
+
+
+            if (firstName == "")
+            {
+                document.getElementById("fnameError").style.display = "block";
+                document.getElementById("fname").focus();
+                isValid = false;
+            }
+
+            else if (lastName == "")
+            {
+                document.getElementById("lnameError").style.display = "block";
+                document.getElementById("lname").focus();
+                isValid = false;
+            }
+
+            else if (address == "")
+            {
+                document.getElementById("addressError").style.display = "block";
+                document.getElementById("address").focus();
+                isValid = false;
+            }
+
+            else if (!testPhone())
+            {
+                document.getElementById("phoneError").style.display = "block";
+                document.getElementById("phoneNum").focus();
+                isValid = false;
+            }
+
+            else if (!validType())
+            {
+                document.getElementById("typeError").style.display = "block";
+                isValid = false;
+            }
+
+
+
+            else if (!testCard())
+            {
+                document.getElementById("cardNumError").style.display = "block";
+                document.forms["myForm"]["cardNum"].focus();
+                isValid = false;
+            }        
+
+            else if (!validExp())
+            {
+                document.getElementById("expError").style.display = "block";
+                document.forms["myForm"]["expire"].focus();
+                isValid = false;
+            }
+
+            else if (!testTotal())
+            {
+                document.getElementById("purchaseError").style.display = "block";
+                document.getElementById("basketball").focus();
+                isValid = false;
+            }
+
+            else if (isValid)
+                alert("Purchase Ordered Successfully");
+            
+            return isValid;
+        }
+
+        function resetErrors()
+        {
+            document.getElementById("fnameError").style.display = "none";
+            document.getElementById("lnameError").style.display = "none";
+            document.getElementById("addressError").style.display = "none";
+            document.getElementById("phoneError").style.display = "none";
+            document.getElementById("typeError").style.display = "none";
+            document.getElementById("cardNumError").style.display = "none";
+            document.getElementById("expError").style.display = "none";
+            document.getElementById("purchaseError").style.display = "none";
+            document.getElementById("calculate").value = "";
+        }
+
+
+        function restart(){
+            resetErrors();
+            alert("Your calculations have been reset");
+        }
+
+        function testPhone()
+        {
+            var phone = document.getElementById("phoneNum").value;
+            var valid = phone.search(/^\d{3}-\d{3}-\d{4}$/);  //validate phone number
+            if (valid != 0)
+                return false;
+            else
+                return true;
+        }
+
+        function testTotal()
+        {
+            var pay = document.getElementById("payment").value.split('$'); 
+            if (pay[1] > 0)
+                return true;
+            else
+                return false;
+        }
+
+        function testCard()
+        {
+            var card = document.forms["myForm"]["cardNum"].value;
+            var valid = card.search(/^\d{16}$/);
+            if (valid != 0)
+                return false;
+            else
+                return true;
+        }
+
+        function validExp()
+        {
+            var cardExp = document.forms["myForm"]["expire"].value;
+            var domExp = cardExp.search(/^\d{2}\/\d{4}$/);
+            var date = cardExp.split("/");
+            var month = date[0];
+            var year = date[1];
+            year *= 1;
+            month *= 1;
+            if (domExp != 0 || month < 1 || month > 12 || year < 2018)
+                return false;
+            else    
+                return true;
+        }
+
+        function upperCase()
+        {
+            var first = document.getElementById("fname");
+            var last = document.getElementById("lname");
+
+            first.value = first.value.toUpperCase();
+            last.value = last.value.toUpperCase();
+        }
+
+        </script>
+
+        <style>
+            form {
+                margin-top: 15px;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            table {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <header>
+                <h1>Sports Now</h1>
+            </header>
+            <div class="topNav">
+                <nav>
+                    <a href="index.html" style="margin-left: 13%">CS 213 Assignments</a>
+                </nav>
+            </div>        
+        <main>
+            <div id="content">
+                
+                <form action="" name="myForm" onreset="restart()" onsubmit="return validateForm()">
+                        <fieldset>
+                            <div class="lft">
+                                <p>First Name: 
+                                <input type="text" name="firstName" id="fname" onblur="upperCase()" autofocus></p>  
+                                <p id="fnameError" class="error">First Name is Required</p>
+                                <p>Last Name:
+                                <input type="text" name="lastName" id="lname" onblur="upperCase()"></p>
+                                <p id="lnameError" class="error">Last Name is Required</p>
+                                Address: <br />
+                                <textarea name="address" id="address" rows="4" cols="30"></textarea>
+                                <p id="addressError" class="error">An Address is Required</p>
+                                <p>
+                                    Phone Number: 
+                                    <input type="tel" size="12" id="phoneNum" onchange="testPhone()" maxlength="12" placeholder="xxx-xxx-xxxx">
+                                </p>
+                    
+                                <p id="phoneError" class="error">Please Enter a Valid Phone Number <br /> (ex. 123-456-7890)</p>
+                                <br />
+                                <p>
+                                    Credit Card: <br />
+                                    <input type="radio" name="cardType" value="visa"> Visa <br />
+                                    <input type="radio" name="cardType" value="mastercard"> MasterCard <br />
+                                    <input type="radio" name="cardType" value="american"> American Express
+                                </p>
+                                <p id="typeError" class="error">Please Select the Card You Will Be Using</p>
+                                <p>
+                                    Credit Card Number:    
+                                    <input type="text" name="cardNum" size="18" maxlength="16" onchange="testCard()" placeholder="xxxxxxxxxxxxxxxx">
+                                </p>
+                                <p id="cardNumError" class="error">Please Enter a Valid Card Number <br /> (ex. 1122334455667788)</p>
+                                <p>
+                                    Card Expiration Date:
+                                    <input type="text" name="expire" size="5" maxlength="7" placeholder="mm/yyyy">
+                                </p>
+                                <p id="expError" class="error">Please Enter a Valid Expiration Date (ex. 01/2018)</p>
+                                <br />
+
+
+                            </div>
+                            <div class="rht">
+                            <table id="calculate">
+                                <tr>
+                                    <th>Equipment</th>
+                                    <th>Cost</th>
+                                </tr>
+                                <tr>
+                                    <th><input type="checkbox" id="basketball" name="prod1" value="20" onchange="getPay()"> Basketball</th> <br />
+                                    <th>$20.00</th>    
+                                </tr>
+                                <tr>
+                                    <th><input type="checkbox" id="football" name="prod2" value="12" onchange="getPay()"> Football</th><br />
+                                    <th>$12.00</th>
+                                </tr>
+                                <tr>
+                                    <th><input type="checkbox" id="soccer" name="prod3" value="20" onchange="getPay()"> Soccer Ball</th><br />
+                                    <th>$20.00</th>
+                                </tr>
+                                <tr>
+                                    <th><input type="checkbox" id="frisbee" name="prod4" value="8" onchange="getPay()"> Frisbee</th><br />
+                                    <th>$8.00</th>
+                                </tr>
+                            </table>
+                            <p style="margin-left: 20%">
+                                Total: 
+                                <input type="text" id="payment" value="0" disabled/>
+                            </p>
+                            <p id="purchaseError" class="error" style="margin-left: 20%">Select an Item to Purchase</p>
+                            </div>
+                            
+                            <br />
+                            <div class="cntr">
+                                <input type="submit">
+                                <input type="reset" value="Reset">
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </main>
+
+            <br />
+            <div class="footer">
+                    <footer>
+                       <span style="color: #000000"> &copy; 2018 Tyler Elkington</span>
+                    </footer>
+                </div>   
+
+        </div>
+    </body>
+</html>
+

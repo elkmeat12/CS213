@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+    <head>
+        <title>Travel Idaho</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style2.css">  
+        
+        <style>
+            header {
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }   
+            
+            form {
+                width: 80%;
+                margin: 0 auto;
+            }
+            
+            fieldset {
+                background-color: #acff9e;
+            }
+
+            input, textarea {
+                background-color: #ffecc4;
+            }
+
+            form p {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 16px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            
+            <header>
+                <h1>Travel Idaho - Book a Trip</h1>                    
+            </header>
+
+            <div class="topNav">
+                <nav>
+                    <a href="assign03.html" style="margin-left: 8%">Home</a>
+                    <a href="travel.html">Book a Trip</a>
+                </nav>
+            </div>
+                
+            <main>
+                <div id="content">
+                    <h3>How it Works</h3>
+                    <hr>
+                    <p>
+                        We pick you up and you decide where! There are three places that we offer: in front of the BYU-Idaho I-Center, the Walmart in Rexburg, and right at your doorstep.
+                        All you have to do is fill out the form below to schedule a trip. Prices may vary upon distance, but typically the cost ranges from $1.50 to $2.50 for every 10 miles.
+                        You may also be interested in some of our packages, which you can view below. Payment is not requested until the day of the trip.
+                    </p>
+
+                    <p>
+                        Each trip, we provide you with a bottle of water and your choice of snack. The van can seat up to 10 passengers and includes A/C. 
+                        We play the music according to your preference, but under reasonable standards. If you schedule a day that is completely filled,
+                        we will notify you of the next available day. You will receive a text message to confirm your trip a day in advance. We are available
+                        Monday through Saturday, but are closed Sundays.
+                    </p>
+
+                    <h3>Packages:</h3>
+                    <ul>
+                        <li>Standard: Regular Costs</li>
+                        <li>Rent the van for a day: $100</li>
+                        <li>Date Package: Pay for 1 person, 2nd person rides for half-off</li>
+                        <li>Veterans and Military: 10% Discount</li>
+                    </ul>
+
+                    <form action="">
+                            <fieldset>
+                                <legend style="font-size: 20px">Request a Trip</legend> <br />
+                                <p>First Name: 
+                                <input type="text" name="firstname" required>  </p>
+                                <p>Last Name:
+                                <input type="text" name="lastname" required>  </p>
+                                <p>Phone Number: </p>
+                                <input type="tel" name="phoneNumber" required>
+                                <p>Email:  </p>
+                                <input type="email" name="email">
+                                <br />
+                                <br />
+
+                                <input type="radio" name="gender" value="male">Male<br />
+                                <input type="radio" name="gender" value="female">Female<br />
+                                <br />
+                                <p>Choose a package: </p>
+                                <input type="radio" name="package" value="standard">Standard Package<br />
+                                <input type="radio" name="package" value="rent">Rent the Van Package<br />
+                                <input type="radio" name="package" value="date">Date Package<br />
+                                <input type="radio" name="package" value="military">Veteran/Military Package<br />
+                                <br />
+                                <p>Date of Trip: </p>
+                                <input type="date" name="date">
+                                <br />
+                                <p>Time: </p>
+                                <input type="time" name="time">
+                                <br />
+                                <br />
+                                <p>Any special requests?</p>
+                                <textarea name="message" style="width: 400px; height: 50px"></textarea>
+                                <br />
+                                <br />
+                                <p>Where would you like to be picked up?</p> 
+                                <textarea name="message" style="width: 400px; height: 50px"></textarea>
+                                <br />
+                                <br />
+                                <input type="submit" value="Submit">
+                                <input type="reset">
+                            </fieldset>
+                        </form>
+                </div>
+            </main>
+            <br />
+            <div class="footer">
+                <footer>
+                   <span style="color: #3f9656"> &copy; 2018 Tyler Elkington</span>
+                </footer>
+            </div>    
+        </div>
+    </body>
+</html>
+

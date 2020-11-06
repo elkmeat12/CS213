@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Email PHP</title>
+        <?php include("practice.php"); ?>
+    </head>
+
+    
+    <body style="text-align: center">  
+        <h1>Email Test PHP</h1>
+        <main>
+            <form method="GET" action="practice.php">
+                To:      <input type="text" name="to"> 
+                <br /><br />
+                From:    <input type="text" name="from">
+                <br /><br />
+                Subject: <input type="text" name="Subject">
+                <br /><br />
+                Message: <br />
+                <textarea name="body" rows="20" cols="80"></textarea>
+                <br />
+                <input type="submit" value="Send">
+            </form>   
+            
+        </main>
+    </body>
+</html>

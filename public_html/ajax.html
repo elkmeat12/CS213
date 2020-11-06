@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+    <head>
+        <title>Ajax Practice</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script>
+            var req;
+
+            function handleResponse() {
+                if (req.readyState == 4) {
+                    if (req.status == 200) {
+                        var str = req.responseText;
+                        document.getElementById("list").innerHTML = str;
+                    }
+                }
+            }
+
+            function sendAjax() {
+                req = new XMLHttpRequest();
+                req.onreadystatechange = handleResponse;
+                req.open("GET", "/~ercanbracks/studentList.html",true);
+                req.send();
+            }
+
+            function sendAjax2() {
+                req = new XMLHttpRequest();
+                req.onreadystatechange = handleResponse;
+                req.open("GET", "/~ercanbracks/studentList1.html",true);
+                req.send();
+            }
+
+            function loadFile() {
+                var fileName = document.getElementById("file").value;
+                req = new XMLHttpRequest();
+                req.onreadystatechange = handleResponse;
+                req.open("GET", fileName, true);
+                req.send();                
+            }
+        </script>
+
+
+        <style>
+            body {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+
+            #container {
+                height: 400px;
+                width: 700px;
+                background-color: rgb(241, 241, 241);
+                margin-left: auto;
+                margin-right: auto;
+                box-shadow: 0px 2px 10px #333333;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Make an AJAX request for part of an html file</h1>
+        </header>
+           
+        <main>
+            <h2>Student List</h2>
+            <div id="container">
+                <br />
+                <p id="list"></p>
+            </div>
+        
+            <br />
+            <input type="button" value="List 1" onclick="sendAjax()">
+            <input type="button" value="List 2" onclick="sendAjax2()">
+            <br />
+            <br />
+            Enter a file to load:
+            <input type="text" id="file">
+            <br />
+            <br />
+            <input type="button" value="Upload File" onclick="loadFile()">
+
+        </main>
+
+    </body>
+</html>
+

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+    <head>
+        <title>Mortgage Calculator</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style3.css">  
+
+        <script>
+        var rate;
+        var term;
+        var amount;
+        var monthPay;
+        
+        window.onload = function()
+        {
+            document.getElementById("rate").focus();
+            document.getElementById("calculate").onclick = getValues;
+        };
+
+        function getValues()
+        {
+            term = getInputValue("term");
+            rate = getInputValue("rate");
+            amount = getInputValue("amount");
+            if (validate())
+            {
+                monthPay = calPay();
+                document.getElementById("payment").value = "$" + monthPay.toFixed(2);
+            }
+        };
+
+        function getInputValue(id)
+        {
+            var result = -1;
+            var value = parseFloat(document.getElementById(id).value);
+            if (value >= 0)
+            {
+                result = value;
+            }
+            return result;
+        }    
+
+        function calPay()
+        {
+            var r = rate / 1200;
+            var t = term * 12;
+            var payment = amount * (r * Math.pow((1 + r), t))/(Math.pow((1 + r), t) - 1);
+            return payment;
+        }
+
+        function validate()
+        {
+            // var mx = document.getElementById("rate").max = "25.00";
+            // var mn = document.getElementById("rate").min = "0";
+            // if (mx > "25.00" || mn < "0") alert("Your APR values are out of range!");
+            
+            var isValid = true;
+            resetErrors();
+            if (amount <= 0)
+            {
+                document.getElementById("amountError").style.display = "block";
+                document.getElementById("amount").focus();
+                isValid = false;
+            }
+
+            if (term > 40 || term < 0)
+            {
+                document.getElementById("termError").style.display = "block";
+                document.getElementById("term").focus();
+                isValid = false;
+            }
+
+
+            if (rate > 25 || rate < 0)
+            {
+                document.getElementById("rateError").style.display = "block";
+                document.getElementById("rate").focus();
+                isValid = false;
+            }
+            return isValid;
+            console.log(isValid);
+        }
+
+        function resetErrors()
+        {
+            document.getElementById("rateError").style.display = "none";
+            document.getElementById("termError").style.display = "none";
+            document.getElementById("amountError").style.display = "none";
+            document.getElementById("payment").value = "";
+        }
+
+
+        function restart(){
+            resetErrors();
+            alert("Your calculations have been reset");
+        }
+        </script>
+
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <header>
+                <h1>Mortgage Calculator</h1>
+            </header>
+            <div class="topNav">
+                <nav>
+                    <a href="index.html">CS 213 Assignments</a>
+                </nav>
+            </div>        
+        <main>
+            <div id="content">
+                <br />
+                <h3>Instruction:</h3>
+                <p>
+                    This form helps calculate your monthly mortgage for you. All we need you to do
+                    is fill out the requested input areas and your monthly payment will be displayed
+                    below. For your APR, the percentage must be between 0 and 25.00 %. The loan term
+                    must also be between 0 and 40 years.
+                </p>
+                <form action="" onreset="restart()" onchange="getValues()">
+                        <fieldset>
+                            <p>Annual Percentage Rate: 
+                            <input type="text" name="percentRate" id="rate" value="00.00" size="5" required autofocus> % </p>    <!--Values must be between 0 and 25.00 percent-->
+                            <p>Loan Term:
+                            <input type="text" name="loanTerm" id="term" value="0" size="3" required> years </p>     <!--Values must be between 0 and 40 years-->
+                            <p>Loan Amount: $ 
+                            <input type="text" name="loanAmount" id="amount" value="0" required> </p>
+                            <br />
+                            <p>
+                                Monthly Payment: 
+                                <input type="text" id="payment" name="monthPay" readonly/>
+                            </p>
+                            <br />
+                            <br />
+                            <button type="button" id="calculate">Calculate Payment</button>
+                            <input type="reset" value="Clear Form">
+                            <p id="rateError" class="error">Invalid values for Annual Percentage Rate</p>
+                            <p id="termError" class="error">Invalid values for Loan Term</p>
+                            <p id="amountError" class="error">Invalid values for Loan Amount</p>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </main>
+
+            <br />
+            <div class="footer">
+                    <footer>
+                       <span style="color: #000000"> &copy; 2018 Tyler Elkington</span>
+                    </footer>
+                </div>   
+
+        </div>
+    </body>
+</html>
+

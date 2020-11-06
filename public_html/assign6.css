@@ -1,0 +1,278 @@
+body {
+    background-image: url(./images/background.jpg);
+    background-size: cover;
+	background-repeat: no-repeat;
+	color: #666666;
+	font-family: Arial, 'Helvetica', Sans-Serif;
+}
+
+#wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	background: #F3F3F3;
+	min-width: 960px;
+	max-width: 2048px;
+	box-shadow: 0px 2px 10px #333333;
+}
+
+header {
+	background-color: #02244A;
+	color: #FFFFFF;
+    background-image:url(./images/icon.png);
+    background-size: 15%;
+	background-position:right center; 
+	background-repeat:no-repeat;
+	text-align: left;
+	padding: 20px;
+}
+
+h1 {
+	font-family: Georgia, 'Times New Roman', Serif;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+nav {
+    padding-top: 16px;
+    padding-bottom: 16px;
+	width: 100%;
+    font-weight: bold;
+    text-align: center;
+    float: none;
+    background-color: #d8d7d7;
+}
+
+nav a{
+    text-decoration: none;
+	color: #02244A;
+    transition-delay: 0.2s;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 14px 16px;
+}
+
+
+nav a:hover{
+    color:#F3F3F3;
+    background-color: #02244A
+}
+
+
+main{
+	padding: 1px 20px 20px 30px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+	font-family: Georgia, 'Times New Roman', Serif;
+	color: #424242;
+	text-shadow: 1px 1px 1px #CCC;
+}
+
+h3 {
+	font-family: Georgia, 'Times New Roman', Serif;
+	color: #02244A;
+}
+
+h4 {
+	font-family: Georgia, 'Times New Roman', Serif;
+	color: #424242;
+	text-shadow: 1px 1px 1px #CCC;
+}
+
+
+footer {
+	font-size: 75%;
+	font-style: italic;
+	text-align: center;
+	font-family: Georgia, 'Times New Roman', Serif;
+	padding: 20px;
+}
+
+
+#patriots{
+    height: 300px;
+    max-width: 100%;
+    background-image: url(./images/patriots.jpg);
+	background-size: auto;
+	background-repeat: no-repeat;
+	background-position: center center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    width: 150px;
+    height: auto;
+    margin-left: 0;
+    margin-right: auto;
+    /* background-size: 15%;
+    background-position: left center;
+    background-repeat: no-repeat; */
+}
+
+
+.flex-contain {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.item {
+    /* height: 100%;
+    width: 250px; */
+    max-width: 100%;
+    min-width: 22%;
+    height: auto;
+    padding: 5px;
+    text-align: left;
+    margin: auto auto;
+}
+
+
+.bld{
+    font-weight: bold;
+    color: #02244A;
+}
+
+
+header, main, nav, footer{
+	display: block;
+	}
+
+
+table {
+    border: 1px solid #424242;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+    color: #02244A;
+}
+
+td, th {
+	padding: 5px;
+	border: 1px solid #424242;
+}
+
+td {
+	text-align: center;
+}
+
+tr:nth-child(odd) {background-color: rgb(179, 182, 185);}
+
+.text {
+	text-align: left;
+}
+
+
+@media only screen and (max-width:64em){
+	body{
+		margin:0px;
+		background-color: #FFFFFF;
+	}
+
+	#wrapper{
+		min-width: 0px;
+		width: auto;
+		box-shadow: none;
+	}
+
+	main{
+		margin: 0px;
+    }
+    
+    table{
+        width: 100%;
+    }
+
+	nav{
+		float: none;
+		width: auto;
+		text-align: center;
+		padding: 0.5em;
+    }
+    
+    nav a {
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+
+	#patriots{
+		/* margin-left: 0px;
+        height: 200px;
+        margin-top: 5px;
+        background-size: auto; */
+        background-size: 70%;
+		display: block;
+    }
+    
+    #brady{
+        background-size: 25%;
+    }
+
+	footer {
+		margin-left: 0px;
+    }
+    
+    /* .flex-contain{
+        flex-direction: column;
+    } */
+
+    .item
+    {
+        max-width: 100%;
+        min-width: 28%;
+        padding: 5px;
+    }
+}
+
+@media only screen and (max-width:37.5em){
+	header {
+		padding-top: 1em;
+	}
+
+	main{
+		padding-top: 0.1em;
+		padding-bottom: 0.1em;
+		padding-left: 1em;
+		padding-right: 1em;	
+		font-size: 90%;
+	}
+
+	h1{
+		font-size: 1.5em;
+	}
+
+	nav{
+		padding: 0px;
+	}
+
+	nav a{
+		display: block;
+	}
+
+	#patriots{
+        /* height: 200px; */
+        /* width: auto; */
+        background-size: 100%;
+		display: block;
+    }
+    
+    #brady{
+        background-size: 30%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .flex-contain {
+        flex-direction: column;
+    }
+}

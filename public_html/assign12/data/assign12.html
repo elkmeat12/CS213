@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+    <head>
+        <title>Piano Festival</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assign12.css">  
+        <script type="text/javascript" src="assign12.js"></script>
+
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <div id="content">
+                <header>
+                    <h1 style="font-size: 300%">Festival Registration</h1>
+                    <hr class="style-eight">
+                </header>
+                
+                <main>
+                    <form onreset="restart()">
+                    <!-- Performance Type -->
+                    <div class="center">
+                        <input type="radio" name="performance" id="solo" value="Solo" onclick="hideStudent()" checked> Solo 
+                        <input type="radio" name="performance" id="duet" value="Duet" onclick="showStudent()"> Duet 
+                        <input type="radio" name="performance" id="concerto" value="Concerto" onclick="hideStudent()"> Concerto 
+                    </div>
+                    <div class="flex-contain">
+                        <div class="item">
+                        <!-- Student Information -->
+                            <div class="center">
+                                <h1>Student</h1>
+                                <hr class="style-eight" style="width: 90%">
+                                <label>First Name</label>
+                                <input type="text" name="fname" id="fname" placeholder="John">
+                                <br />
+                                <label>Last Name</label>
+                                <input type="text" name="lname" id="lname" placeholder="Doe">
+                                <br />
+                                <label>Student ID</label>
+                                <input type="text" name="sid" id="sid" maxlength="9" placeholder="123456789"> 
+                                <br />  
+                                <p id="firstError" class="error">* Please Enter the First Name</p>
+                                <p id="lastError" class="error">* Please Enter the Last Name</p>
+                                <p id="idError" class="error">* Please Enter the Student ID</p>
+
+                            </div>
+                        </div>
+                        <div class="item">
+                        <!-- 2nd Student Information -->
+                            <div class="center">
+                                <div id="hide">
+                                    <h1>2nd Student</h1>
+                                    <hr class="style-eight" style="width: 90%">
+                                    <label>First Name</label>
+                                    <input type="text" name="fname2" id="fname2" placeholder="Jane">
+                                    <br />
+                                    <label>Last Name</label>
+                                    <input type="text" name="lname2" id="lname2" placeholder="Doe">
+                                    <br />
+                                    <label>Student ID</label>
+                                    <input type="text" name="sid2" id="sid2" maxlength="9" placeholder="987654321"> 
+                                    <br />  
+                                    <p id="firstError2" class="error">* Please Enter the First Name</p>
+                                    <p id="lastError2" class="error">* Please Enter the Last Name</p>
+                                    <p id="idError2" class="error">* Please Enter the Student ID</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="style-eight">
+                        
+                        <div class="flex-contain">
+                            <div class="item">
+                                <label style="text-align: center">Skill Level</label>
+                                <select name="skill" id="skill">
+                                    <option>Beginner</option>
+                                    <option>Intermediate</option>
+                                    <option>Pre-Advanced</option>
+                                    <option>Advanced</option>
+                                </select>
+                            
+                                <label style="text-align: center">Instrument</label>
+                                <select name="instrument" id="instrument">
+                                    <option>Piano</option>
+                                    <option>Voice</option>
+                                    <option>String</option>
+                                    <option>Organ</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+
+                            <div class="item">
+                                <label style="text-align: center">Location</label>
+                                <select name="location" id="location">
+                                    <option>Snow</option>
+                                    <option>Austin</option>
+                                    <option>Manwaring Center</option>
+                                    <option>Ricks</option>
+                                    <option>Science & Technology</option>
+                                </select>
+
+                                <label style="text-align: center">Room Number</label>
+                                <select name="room" id="room">
+                                    <option>115</option>
+                                    <option>128</option>
+                                    <option>136</option>
+                                    <option>170</option>
+                                    <option>200</option>
+                                    <option>225</option>
+                                    <option>237</option>
+                                    <option>251</option>
+                                    <option>263</option>
+                                    <option>277</option>
+                                </select>
+
+                                <label style="text-align: center">Time Slot</label>
+                                <select name="time" id="time">
+                                    <option>8:00 am</option>
+                                    <option>9:15 am</option>
+                                    <option>10:30 am</option>
+                                    <option>11:45 am</option>
+                                    <option>1:00 pm</option>
+                                    <option>2:15 pm</option>
+                                    <option>3:30 pm</option>
+                                    <option>4:45 pm</option>
+                                    <option>6:00 pm</option>
+                                    <option>7:15 pm</option>
+                                    <option>8:30 pm</option>
+                                    <option>9:45 pm</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="center">
+                            <input type="button" id="submit" name="submit" value="Register" onclick="validate()">
+                            <input type="reset" value="Reset">
+                        </div>
+                    </form>
+                    <br />
+                    <hr class="style-eight">
+                    <h1>Students Registered</h1>
+                    <div style="overflow-x:auto">
+                        <p id="registered"></p>
+                    </div>
+                </main>
+            </div>
+            </div>
+    </body>
+</html>
+

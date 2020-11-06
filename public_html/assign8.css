@@ -1,0 +1,79 @@
+body {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #2eb291;
+}
+
+
+h1, h2 {
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 2px 2px #333333;
+}
+
+table {
+    margin: auto;
+    text-align: left;
+    width:100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px 15px 5px 15px;
+}
+
+.button{
+	border:2px solid #333333;
+	border-radius:5px;
+	background-color: #ffffff;
+	font-size:110%;
+	margin:15px 0px;
+}
+
+.button:hover {
+    background-color: #dddddd;
+}
+
+
+.container {
+    height: auto;
+    min-height: 400px;
+    width: 100%;
+    background-color: #227560;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 2px 10px #333333;
+}
+
+.fileContain {
+    background-color: #dddddd;
+    margin: auto auto;
+    height: 350px;
+    width: 45%;
+    box-shadow: 2px 2px #333333;
+    text-align: center;
+}
+
+@media only screen and (max-width:64em){
+    .fileContain {
+        width: 80%;
+    }
+
+    .fileContain p {
+        font-size: 14px;
+    }
+
+}
+
+@media only screen and (max-width:37.5em){
+    .fileContain {
+        width: 90%
+    }
+
+    table, th, td{
+        padding: 0px 0px 0px 5px;
+        font-size: 95%;
+    }
+}
